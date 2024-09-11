@@ -9,11 +9,9 @@ router.route("/order/:id").get(isAuthenticatedUser, getSingleOrder);
 
 router.route("/orders/me").get(isAuthenticatedUser, getUserOrders);
 
-//Admin routes NOT WORKING
+router.route("/admin/orders").get(isAuthenticatedUser, authorizedRoles("admin"),getAllOrder);
 
-router.route("admin/orders").get(isAuthenticatedUser, authorizedRoles("admin"),getAllOrder);
-
-router.route("admin/order/:id").put(isAuthenticatedUser, authorizedRoles("admin"),updateOrderStatus)
+router.route("/admin/order/:id").put(isAuthenticatedUser, authorizedRoles("admin"),updateOrderStatus)
 .delete(isAuthenticatedUser, authorizedRoles("admin"),deleteOrder);
 
 module.exports = router;
