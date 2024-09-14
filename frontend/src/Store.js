@@ -4,10 +4,15 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import { productReducer } from "./Reducers/productReducer";
 
 const reducer = combineReducers({
-    product:productReducer,
+    products:productReducer,
 });
 
-let initialState ={};
+let initialState ={
+    products: [],
+    productCount: 0,
+    loading: false,
+    error: null,
+};
 
 const middleware = [thunk];
 

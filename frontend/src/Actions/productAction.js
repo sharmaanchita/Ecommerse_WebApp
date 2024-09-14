@@ -4,7 +4,7 @@ import {ALL_PRODUCT_FAIL, ALL_PRODUCT_SUCCESS, ALL_PRODUCT_REQ, CLEAR_ERRORS} fr
 export const getProducts = () => async(dispatch)=> {
 
     try {
-        dispatch({type:ALL_PRODUCT_REQ,})
+        dispatch({type:ALL_PRODUCT_REQ})
         const { data } = await axios.get("/api/v1/products")
         dispatch({
             type:ALL_PRODUCT_SUCCESS,
